@@ -7,8 +7,6 @@ function Expenses(props) {
     const expense = useSelector(state => state.expense)
     let array = [];
     for (let i=0; i< expense.length; i++) {
-        array.push(
-            key={i} item={expense[i]})
     console.log('Expense Item [',i,']: ' , expense[i])
     }
 
@@ -31,8 +29,7 @@ function Expenses(props) {
             {/* <ol>
                 {expense.name.map(expense =>(<li key={expense.name}>{expense.name}</li>))}
             </ol> */}
-            <div className="expense-container">
-                {array}           
+            <div className="expense-container">           
                 <h3>{expense[0].name}:  ${expense[0].amt} <button value='100' onClick={RemoveExpense}>X</button></h3>
                 {/* <li><h1>{expense[1].name}:  ${expense[1].amt}</h1></li> */}
                  
