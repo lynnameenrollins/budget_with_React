@@ -5,9 +5,77 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: rgb(190, 149, 96);
+  text-shadow:  2px 2px 3px black;;
+  background-color: rgb(135, 168, 228);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.main-container {
+  display: inline-flex;
+  width: 100%;
+  text-align: left;
+  flex-direction: row;
+  align-self: stretch;
+}
+
+/* .main-container div {
+  width: 30%;
+  border: 2px solid dodgerblue;
+  height: 30px;
+} */
+
+div h3 {
+  font-size: 20px;
+  color: dodgerblue;
+  background-color: #333;
+  padding: 20px;
+  margin: 0 auto;
+  height: 15px;
+  width: 27%;
+  border-bottom: 2px solid rgb(190, 149, 96);
+}
+.budget{
+  font-size: 20px;
+  color: dodgerblue;
+  /* background-color: #333; */
+  /* padding: 20px; */
+  margin: 0 auto;
+  
+  background-color: rgb(33, 69, 128);
+  
+}
+.spent{
+  background-color: rgb(87, 32, 32);
+}
+.updateBudget{
+  
+  color:white;
+  background-color: black;
+  justify-content: left;
+  padding: 8px 15px;
+  
+}
+div p {
+  margin-top: 4em;
+  margin-bottom: 7em;
+}
+
+div a {
+  background-color: dodgerblue;
+  padding: 15px 75px;
+  border-radius: 2px;
+  text-decoration: none;
+}
+.ExpenseList{
+  color:black;
+  text-shadow: none;
+}
+.AddExpense{
+  color:black;
+  text-shadow: none;
 }
