@@ -19,8 +19,9 @@ function Expenses(props) {
         console.log("----Remove Expense Function----")
         let name = expense[0].name
         let amt = expense[0].amt
-        let test = document.getElementById("listed_exp").value
-        console.log('----TEST-----', test)
+        let test = document.getElementById("expense_name")
+        let value = test.value
+        console.log('----TEST-----', test, "Value", value)
         
         let cost = {name, amt}
         console.log('Cost_name ', name)
@@ -39,10 +40,16 @@ function Expenses(props) {
         <div className ="ExpenseList">
             <h1>List of Expenses</h1>
 
-            <div className="expense-container">    
-            <ol >
-                {expense.map(expense =>(<ol id="listed_exp" className = "expense_item" key={expense}>{expense.name}    ${expense.amt} <button id="rm_exp" className="rm_exp" onClick={RemoveExpense}>X</button></ol>))}
-            </ol>       
+            <div className="expense-container"> 
+            <table className = "expense-table">
+                <tr>
+                {expense.map(expense =>(<ol id="listed_exp" className = "expense_item" key={expense}>
+                <td id = "expense_name">{expense.name}  </td>  
+                <td id= "expense_cost">${expense.amt} </td>
+                <td><button id="rm_exp" className="rm_exp" onClick={RemoveExpense}>X</button></td></ol>))}
+                </tr>
+            </table>   
+     
                
             </div>
             

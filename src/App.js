@@ -65,8 +65,9 @@ function App(props) {
       <div className="main-container">
         
         <h3 className= "budget">Budget: ${budget}  <button className = "updateBudget" type="button" id="Update" onClick={updateBudget}>Update
-        </button><button hidden={true} id="Save" onClick={toggle}>Save</button>
-        <label id ="SaveLabel" hidden={true}>New Budget:</label><input type="text" id="NewBudget" hidden={true} ></input>
+        </button><br></br>
+        <label id ="SaveLabel" hidden={true}>Enter Updated Budget ($): </label><input type="text" id="NewBudget" hidden={true} ></input>
+        <button className = "saveButton" hidden={true} id="Save" onClick={toggle}>Save</button>
         </h3>
         
         <h3 className= "remaining">Remaining: ${remaining}</h3>

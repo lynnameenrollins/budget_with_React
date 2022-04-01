@@ -7,7 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: rgb(190, 149, 96);
   text-shadow:  2px 2px 3px black;;
-  background-color: rgb(135, 168, 228);
+  background-color: rgb(80, 135, 107);
 }
 
 code {
@@ -23,11 +23,6 @@ code {
   align-self: stretch;
 }
 
-/* .main-container div {
-  width: 30%;
-  border: 2px solid dodgerblue;
-  height: 30px;
-} */
 
 div h3 {
   font-size: 20px;
@@ -35,7 +30,7 @@ div h3 {
   background-color: #333;
   padding: 20px;
   margin: 0 auto;
-  height: 15px;
+  height: 65px;
   width: 27%;
   border-bottom: 2px solid rgb(190, 149, 96);
 }
@@ -45,12 +40,13 @@ div h3 {
   /* background-color: #333; */
   /* padding: 20px; */
   margin: 0 auto;
-  
+
   background-color: rgb(33, 69, 128);
   
 }
 .spent{
   background-color: rgb(87, 32, 32);
+  
 }
 .updateBudget{
   
@@ -61,6 +57,10 @@ div h3 {
   
 }
 
+.saveButton{
+  background-color: rgb(174, 213, 184);
+  position: left;
+}
 div p {
   margin-top: 4em;
   margin-bottom: 7em;
@@ -79,6 +79,10 @@ div a {
   flex-direction: row;
   align-self: stretch;
 } */
+.expense-table{
+  width: 85%;
+  align-self: center;
+}
 .expense_item{
   width: 100%;
   font-size: large;
@@ -100,4 +104,17 @@ div a {
 .AddExpense{
   color:black;
   text-shadow: none;
+  font-size: larger;
+}
+#ExpName{
+  width:40%;
+  height: 20px;
+}
+#ExpCost{
+  width:20%;
+  height: 20px;
+}
+.saveExpense{
+  background-color: rgb(174, 213, 184);
+  padding: 5px 15px
 }

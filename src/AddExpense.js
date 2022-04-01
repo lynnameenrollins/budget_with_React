@@ -29,9 +29,9 @@ function AddExpense(props) {
             <h1>Add Expense</h1>
             <label>Expense Name: </label>
             <input type="text" id="ExpName" ></input>
-            <label>Cost: </label>
+            <label>Cost: $ </label>
             <input type="text" id="ExpCost"></input>
-            <button onClick={Add}>Save</button>
+            <button className = "saveExpense" onClick={Add}>Save</button>
         </div>
     );
 }
