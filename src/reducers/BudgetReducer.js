@@ -1,7 +1,7 @@
 const initalState = {
     budget: 5000,
-    expense:[{name:'School', amt:'450'}, {name:'Food', amt:'300'}],
-    spent: 0,
+    expense:[{name:'Housing', amt:'1050'}, {name:'Food', amt:'300'}],
+    spent: 1350,
    
 }
 
@@ -12,29 +12,38 @@ const BudgetReducer = (state = initalState, action)=>{
             console.log("In Set Budget");
             newState.budget = action.payload;
             return newState;
-        case 'REMAINING':
-            console.log("In Remaining");
-            return newState;
-        case 'SPENT':
-            console.log("In Spent");
-            return newState;
-        case 'ADD_EXPENSE_NAME':
+        
+        case 'ADD_EXPENSE':
             console.log("In Budget Reducer AddName", action.payload)
-            newState.expense.push({name: action.payload});
-            console.log(newState.expense.name)
+            newState.expense.push(action.payload);
+            console.log(newState.expense.name, newState.expense.amt)
             return newState;
         case 'ADD_EXPENSE_AMT':
             console.log("In Budget Reducer Add", action.payload)
             newState.spent = Number(newState.spent) + Number(action.payload);
-            newState.expense.push(action.payload);
+            // newState.expense.push(action.payload);
             console.log(newState.spent)
             return newState;
            
-        case 'REMOVE':
-            console.log("In Remove")
-            newState.spent = newState.spent - action.payload
-            return newState;
+        case 'REMOVE_EXPENSE':
+            console.log("In REMOVE_EXPENSE")
+            function arrayRemove(arr, value){
+                // console.log('arr', arr)
+                // console.log('value', value)
+                
+                return arr.filter(function(ele){
+                    console.log('ele', ele)
+                    return ele.name !== value.name;
+                })}
+            newState.expense = arrayRemove(newState.expense, action.payload);    
+            console.log("Expense List: " , newState.expense)
             
+            return newState;
+            case 'REMOVE_EXPENSE_AMT':
+                // console.log("In REMOVE_EXPENSE_AMT", action.payload)
+                newState.spent = Number(newState.spent) - Number(action.payload);
+                // console.log(newState.spent)
+                return newState;
         default:
             return newState;
                 

@@ -60,6 +60,7 @@ div h3 {
   padding: 8px 15px;
   
 }
+
 div p {
   margin-top: 4em;
   margin-bottom: 7em;
@@ -71,10 +72,31 @@ div a {
   border-radius: 2px;
   text-decoration: none;
 }
+/* .expense-container {
+  display: inline-flex;
+  width: 100%;
+  text-align: left;
+  flex-direction: row;
+  align-self: stretch;
+} */
+.expense_item{
+  width: 100%;
+  font-size: large;
+  background-color: lightgray;
+
+}
+.rm_exp{
+  color:white;
+  background-color:rgb(160, 21, 21);
+  justify-content: left;
+  padding: 8px 15px;
+  border-radius: 50%;
+}
 .ExpenseList{
   color:black;
   text-shadow: none;
 }
+
 .AddExpense{
   color:black;
   text-shadow: none;

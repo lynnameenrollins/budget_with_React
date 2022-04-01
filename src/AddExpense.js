@@ -9,18 +9,19 @@ function AddExpense(props) {
     let dispatch = useDispatch();
 
     const Add = (e) =>{
-        let cost_name = document.getElementById('ExpName').value
-        let cost_amt = document.getElementById('ExpCost').value
-        
-        console.log('Cost_name ', cost_name)
-        console.log('Cost_amt ', cost_amt)
+        let name = document.getElementById('ExpName').value
+        let amt = document.getElementById('ExpCost').value
+        let cost = {name, amt}
+        console.log('Cost_name ', name)
+        console.log('Cost_amt ', amt)
+        console.log(cost)
         dispatch({
-            type:"ADD_EXPENSE_NAME",
-            payload: cost_name,
+            type:"ADD_EXPENSE",
+            payload: cost,
         })
         dispatch({
             type:"ADD_EXPENSE_AMT",
-            payload: cost_amt,
+            payload: amt,
         })
     }
     return (

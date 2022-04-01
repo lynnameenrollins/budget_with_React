@@ -8,7 +8,7 @@ import {connect} from 'react-redux';
 import Expenses from './Expenses';
 import AddExpense from './AddExpense';
 import Update from './Update';
-import {useNavigate, Routes,  Route, Router, Link} from 'react-router'
+
 
 
 
@@ -24,23 +24,38 @@ function App(props) {
     console.log("in useEffect, budget: " + budget);
   })
 
-  
   function updateBudget (){
-    console.log("In update budget")
-    // let navigate = useNavigate();
-    // navigate('/Update')
     
+    let save_button = document.getElementById("Save")
+    let update_button = document.getElementById("Update")
+    let save_label = document.getElementById("SaveLabel")
+    let new_budget = document.getElementById("NewBudget")
     
+    save_button.removeAttribute("hidden");
+    save_label.removeAttribute("hidden");
+    new_budget.removeAttribute("hidden");
+    update_button.setAttribute("hidden", "hidden");
+
+   
   }
-  // const updateBudget = (e) =>{
-      
-  //     if (true){
-  //       dispatch({
-  //         type: "SET_BUDGET",
-  //         payload: e.target.value,
-  //     })
-  //   }
-  // }
+  function toggle (){
+    console.log("In update budget")
+    let save_button = document.getElementById("Save")
+    let update_button = document.getElementById("Update")
+    let save_label = document.getElementById("SaveLabel")
+    let new_budget_box = document.getElementById("NewBudget")
+    let new_budget =document.getElementById("NewBudget").value
+    update_button.removeAttribute("hidden");
+    save_button.setAttribute("hidden", "hidden");
+    save_label.setAttribute("hidden", "hidden");
+    new_budget_box.setAttribute("hidden", "hidden");
+    console.log("New Budget : $", new_budget)
+    dispatch({
+      type:"SET_BUDGET",
+      payload: new_budget,
+  })
+  }
+
 
   return (
     <div className="App">
@@ -49,8 +64,11 @@ function App(props) {
       <h1>My Budget Planner</h1>
       <div className="main-container">
         
-        <h3 className= "budget">Budget: ${budget}  <button className = "updateBudget" type="button" onClick={updateBudget}>Update</button></h3>
-        {/* <button variant="outlined">Open Simple Dialog</button> */}
+        <h3 className= "budget">Budget: ${budget}  <button className = "updateBudget" type="button" id="Update" onClick={updateBudget}>Update
+        </button><button hidden={true} id="Save" onClick={toggle}>Save</button>
+        <label id ="SaveLabel" hidden={true}>New Budget:</label><input type="text" id="NewBudget" hidden={true} ></input>
+        </h3>
+        
         <h3 className= "remaining">Remaining: ${remaining}</h3>
         <h3 className= "spent">Spent: ${spent} </h3>
     </div>
