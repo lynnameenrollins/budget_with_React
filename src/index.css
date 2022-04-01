@@ -7,7 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: rgb(190, 149, 96);
   text-shadow:  2px 2px 3px black;;
-  background-color: rgb(80, 135, 107);
+  background-color: rgb(105, 144, 124);
 }
 
 code {
@@ -92,7 +92,8 @@ div a {
 .rm_exp{
   color:white;
   background-color:rgb(160, 21, 21);
-  justify-content: left;
+  /* position: absolute;
+  right: 0; */
   padding: 8px 15px;
   border-radius: 50%;
 }
@@ -101,6 +102,12 @@ div a {
   text-shadow: none;
 }
 
+#expense_name{
+  color: rebeccapurple
+}
+#expsense_cost{
+
+}
 .AddExpense{
   color:black;
   text-shadow: none;

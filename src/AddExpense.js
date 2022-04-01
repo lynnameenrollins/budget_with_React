@@ -1,20 +1,19 @@
 import React from 'react';
-import {useDispatch} from 'react-redux'
-
-
-
+import {useDispatch, useSelector} from 'react-redux'
 
 
 function AddExpense(props) {
     let dispatch = useDispatch();
-
+    const expense = useSelector(state => state.expense)
+    let id = expense.length; //Defaulted with 2 items in the list
     const Add = (e) =>{
         let name = document.getElementById('ExpName').value
         let amt = document.getElementById('ExpCost').value
-        let cost = {name, amt}
-        console.log('Cost_name ', name)
-        console.log('Cost_amt ', amt)
-        console.log(cost)
+        id = ++id;
+        let cost = {id, name, amt}
+        // console.log('Cost_name ', name)
+        // console.log('Cost_amt ', amt)
+        // console.log(cost)
         dispatch({
             type:"ADD_EXPENSE",
             payload: cost,
