@@ -30,8 +30,8 @@ div h3 {
   background-color: #333;
   padding: 20px;
   margin: 0 auto;
-  height: 65px;
-  width: 27%;
+  height: 70px;
+  width: 29%;
   border-bottom: 2px solid rgb(190, 149, 96);
 }
 .budget{
@@ -43,6 +43,9 @@ div h3 {
 
   background-color: rgb(33, 69, 128);
   
+}
+#NewBudget{
+  width:40%
 }
 .spent{
   background-color: rgb(87, 32, 32);
@@ -72,13 +75,7 @@ div a {
   border-radius: 2px;
   text-decoration: none;
 }
-/* .expense-container {
-  display: inline-flex;
-  width: 100%;
-  text-align: left;
-  flex-direction: row;
-  align-self: stretch;
-} */
+
 .expense-table{
   width: 85%;
   align-self: center;
@@ -94,7 +91,7 @@ div a {
   background-color:rgb(160, 21, 21);
   /* position: absolute;
   right: 0; */
-  padding: 8px 15px;
+  padding: 4px 10px;
   border-radius: 50%;
 }
 .ExpenseList{
@@ -105,9 +102,7 @@ div a {
 #expense_name{
   color: rebeccapurple
 }
-#expsense_cost{
 
-}
 .AddExpense{
   color:black;
   text-shadow: none;
@@ -124,4 +119,8 @@ div a {
 .saveExpense{
   background-color: rgb(174, 213, 184);
   padding: 5px 15px
+}
+.span_exp{
+  font-size: larger;
+  
 }

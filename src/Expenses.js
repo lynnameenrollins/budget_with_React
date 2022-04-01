@@ -4,6 +4,7 @@ import ListGroup from 'react-bootstrap/ListGroup'
 
 
 
+
 function Expenses(props) {
     const expense = useSelector(state => state.expense)
     let array = [];
@@ -45,22 +46,13 @@ function Expenses(props) {
       {expense.map(item => {
         return (
           <>
-            <span key = {item.name} id={item.name}>
-              {item.name} $ {item.amt} <button id="rm_exp" className="rm_exp" onClick={()=>RemoveExpense(item.id, item.name, item.amt)}>X</button><br></br></span>
+            <ol className="span_exp" key = {item.name} id={item.name}>
+              {item.name}  ${item.amt} <button id="rm_exp" className="rm_exp" onClick={()=>RemoveExpense(item.id, item.name, item.amt)}>X</button><br></br></ol>
           </>
         );
       })}
     </div>
-            {/* <table className = "expense-table">
-                <tr id="line">
-                {expense.map(expense =>(<ol id="listed_exp" className = "expense_item" key={expense}>
-                <td id = "expense_name">{expense.name}  </td>  
-                <td id= "expense_cost">${expense.amt} </td>
-                <td><button id="rm_exp" className="rm_exp" onClick={RemoveExpense}>X</button></td></ol>))}
-                </tr>
-            </table>    */}
-     
-               
+                        
             </div>
             
         </div>
