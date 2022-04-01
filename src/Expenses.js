@@ -13,19 +13,19 @@ function Expenses(props) {
 
     let dispatch = useDispatch();
 
-    const RemoveExpense = (id) =>{
+    const RemoveExpense = (id, name, amt) =>{
         
         //hard coded for testing
         console.log("----Remove Expense Function----")
   
        
-        let value = id-1;
-        console.log('----TEST-----', value)
-        let name = expense[value].name;
-        let amt = expense[value].amt;
-        let cost = {name, amt}
-        // console.log('Cost_name ', name)
-        // console.log('Cost_amt ', amt)
+        // let value = id-1;
+        console.log('----TEST-----', id, name, amt)
+        // let name = expense[value].name;
+        // let amt = expense[0].amt;
+        let cost = {id, name, amt}
+        console.log('Cost_name ', name)
+        console.log('Cost_amt ', amt)
         console.log('payload: ', cost)
         dispatch({
             type:"REMOVE_EXPENSE",
@@ -45,8 +45,8 @@ function Expenses(props) {
       {expense.map(item => {
         return (
           <>
-            <span key = {item.id} id={item.name}>
-              {item.name} $ {item.amt} <button id="rm_exp" className="rm_exp" onClick={()=>RemoveExpense(item.id)}>X</button><br></br></span>
+            <span key = {item.name} id={item.name}>
+              {item.name} $ {item.amt} <button id="rm_exp" className="rm_exp" onClick={()=>RemoveExpense(item.id, item.name, item.amt)}>X</button><br></br></span>
           </>
         );
       })}

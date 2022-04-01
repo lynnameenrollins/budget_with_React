@@ -4,12 +4,17 @@ import {useDispatch, useSelector} from 'react-redux'
 
 function AddExpense(props) {
     let dispatch = useDispatch();
-    const expense = useSelector(state => state.expense)
-    let id = expense.length; //Defaulted with 2 items in the list
+    const expense = useSelector(state => state.expense);
+    const count = useSelector (state => state.count)
+
+
+    console.log("count: ", count)
+    // let id = expense.length; //Defaulted with 2 items in the list
     const Add = (e) =>{
         let name = document.getElementById('ExpName').value
         let amt = document.getElementById('ExpCost').value
-        id = ++id;
+        let id = count + 1;
+        
         let cost = {id, name, amt}
         // console.log('Cost_name ', name)
         // console.log('Cost_amt ', amt)
@@ -21,6 +26,10 @@ function AddExpense(props) {
         dispatch({
             type:"ADD_EXPENSE_AMT",
             payload: amt,
+        })
+        dispatch({
+            type:"INCREMENT_COUNTER",
+            payload: id,
         })
     }
     return (

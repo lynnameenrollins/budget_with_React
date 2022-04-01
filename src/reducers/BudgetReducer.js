@@ -2,6 +2,7 @@ const initalState = {
     budget: 5000,
     expense:[{id: 1, name:'Housing', amt:'1050'},{id: 2, name:'Food', amt:'400'}],
     spent: 1350,
+    count: 2 //default with 2 items in expense
    
 }
 
@@ -15,6 +16,7 @@ const BudgetReducer = (state = initalState, action)=>{
         
         case 'ADD_EXPENSE':
             console.log("In Budget Reducer AddName", action.payload)
+            
             newState.expense.push(action.payload);
             // console.log(newState.expense.name, newState.expense.amt)
             return newState;
@@ -24,16 +26,18 @@ const BudgetReducer = (state = initalState, action)=>{
             
             // console.log(newState.spent)
             return newState;
-           
+        case "INCREMENT_COUNTER":  
+            newState.count = action.payload;
+            console.log("incrementing counter: ", newState.count)
         case 'REMOVE_EXPENSE':
-            // console.log("In REMOVE_EXPENSE")
+            console.log("In REMOVE_EXPENSE")
             function arrayRemove(arr, value){
-                // console.log('arr', arr)
-                // console.log('value', value)
+                console.log('arr', arr)
+                console.log('value', value)
                 
                 return arr.filter(function(ele){
-                    // console.log('ele', ele)
-                    return ele.name !== value.name;
+                    console.log('ele', ele)
+                    return ele.id !== value.id;
                 })}
             newState.expense = arrayRemove(newState.expense, action.payload);    
             // console.log("Expense List: " , newState.expense)
