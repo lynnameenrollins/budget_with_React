@@ -45,7 +45,7 @@ const BudgetReducer = (state = initalState, action)=>{
             return newState;
             case 'REMOVE_EXPENSE_AMT':
                 // console.log("In REMOVE_EXPENSE_AMT", action.payload)
-                newState.spent = Number(newState.spent) - Number(action.payload);
+                newState.spent =Number(newState.spent) - Number(action.payload);
                 // console.log(newState.spent)
                 return newState;
         default:

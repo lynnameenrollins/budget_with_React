@@ -52,7 +52,7 @@ function Expenses(props) {
                     return (
                       <>
                         <ol className="span_exp" key = {item.name} id={item.name}>
-                        {item.name} </ol><hr></hr>
+                        {item.name} </ol><hr id="line"></hr>
                       </>
                      );
                      })}
@@ -63,7 +63,7 @@ function Expenses(props) {
                       <>
                         <ol className="span_exp" key = {item.name} id={item.name}>
                          {item.amt}
-                        </ol><hr></hr>
+                        </ol><hr id="line"></hr>
                       </>
                      );
                      })}
@@ -74,7 +74,7 @@ function Expenses(props) {
                       <>
                         <ol className="span_exp" key = {item.name} id={item.name}>
                          <button id="rm_exp" className="rm_exp" onClick={()=>RemoveExpense(item.id, item.name, item.amt)}>X</button>
-                        </ol><hr></hr>
+                        </ol><hr id="line"></hr>
                       </>
                      );
                      })}

@@ -15,7 +15,8 @@ function AddExpense(props) {
         let amt = document.getElementById('ExpCost').value
         let id = count + 1;
         //To ensure no trailing decimals
-        // amt = amt.toFixed(2);
+        amt=Number(amt);
+        amt=amt.toFixed(2);
         
         let cost = {id, name, amt}
         // console.log('Cost_name ', name)
