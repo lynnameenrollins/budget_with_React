@@ -14,6 +14,8 @@ function AddExpense(props) {
         let name = document.getElementById('ExpName').value
         let amt = document.getElementById('ExpCost').value
         let id = count + 1;
+        //To ensure no trailing decimals
+        // amt = amt.toFixed(2);
         
         let cost = {id, name, amt}
         // console.log('Cost_name ', name)
@@ -35,10 +37,10 @@ function AddExpense(props) {
     return (
         <div className="AddExpense">
             <h1>Add Expense</h1>
-            <label>Expense Name: </label>
+            <label className = "expName">Expense Name: </label>
             <input type="text" id="ExpName" ></input>
-            <label>Cost: $ </label>
-            <input type="text" id="ExpCost"></input>
+            <label className = "expName">  Cost: $   </label>
+            <input type="number" id="ExpCost" step=".01"></input>
             <button className = "saveExpense" onClick={Add}>Save</button>
         </div>
     );

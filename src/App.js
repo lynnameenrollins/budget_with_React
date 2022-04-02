@@ -19,7 +19,7 @@ function App(props) {
   const budget = useSelector(state => state.budget)
   const spent = useSelector(state =>state.spent);
   const remaining = budget - spent;
-
+  
   useEffect(() =>{
     console.log("in useEffect, budget: " + budget);
   })

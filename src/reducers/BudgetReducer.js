@@ -1,7 +1,7 @@
 const initalState = {
     budget: 5000,
     expense:[{id: 1, name:'Housing', amt:'1050'},{id: 2, name:'Food', amt:'400'}],
-    spent: 1350,
+    spent: 1450,
     count: 2 //default with 2 items in expense
    
 }
