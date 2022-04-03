@@ -14,28 +14,29 @@ function App(props) {
  
   let budget = useSelector(state => state.budget)
   let spent = useSelector(state =>state.spent);
+  let count = useSelector(state=>state.count)
   let remaining = budget - spent;
   let ovspt = document.getElementById("overspent");
   let rmn = document.getElementById("remaining");
+  
   budget = Number(budget);
   budget = budget.toFixed(2);
   spent=spent.toFixed(2);
   remaining=remaining.toFixed(2);
-
+ 
   useEffect(() =>{
     console.log("in useEffect, budget: " + budget);
     console.log("remaining = ", remaining)
   
-
-    // if (remaining <= 0){
-    //   console.log('----overspent----')
-    //   ovspt.removeAttribute("hidden")
-    //   rmn.setAttribute("hidden", "hidden");
-    // } 
-    // else{
-    //   rmn.removeAttribute("hidden")
-    //   ovspt.setAttribute("hidden", "hidden");
-    // }
+    if (remaining <= 0){
+      console.log('----overspent----')
+      ovspt.removeAttribute("hidden")
+      rmn.setAttribute("hidden", "hidden");
+    } 
+    else if (count >=3){
+      rmn.removeAttribute("hidden")
+      ovspt.setAttribute("hidden", "hidden");
+    }
 
   })
     
@@ -74,7 +75,6 @@ function App(props) {
   })
   }
 
-
   return (
     <div className="App">
    
@@ -94,36 +94,14 @@ function App(props) {
         <h3 className= "spent">Spent: ${spent} </h3>
     </div>
     
-    
     <Expenses/>
     <AddExpense/>
    
     </div>
-      
-
-  
   );
 }
 
-//This will subscribe to redux store changes
-//Anytime store is updated
-// const mapStateToProps = state =>{
-//   return{
-//     data: state
-//   }
-// }
- 
-// //Used to dispatch action(s) to the store
-// const mapDispatchToProps = dispatch => {
-//   return{
-//     changeColor: (color) => dispatch({
-//       type: "CHANGE_COLOR", payload:color
-//     }
-//   )
-// }
-// }
-//This will connect a react component to a redux store
-// export default  connect(mapStateToProps, mapDispatchToProps)(App);
+
 export default App;
 
 
