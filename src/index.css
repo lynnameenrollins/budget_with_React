@@ -44,7 +44,14 @@ div h3 {
   margin: 0 auto;
 
   background-color: rgb(41, 65, 104);
-  
+}
+.overspent{
+  font-size: 20px;
+  color: rgb(128, 16, 16);
+  /* padding: 20px; */
+  margin: 0 auto;
+  text-shadow:  1px 1px 2px yellow;
+  background-color: rgb(197, 175, 179);
 }
 #NewBudget{
   width:40%

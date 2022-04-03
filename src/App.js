@@ -8,22 +8,39 @@ import { useEffect} from 'react';
 import Expenses from './Expenses';
 import AddExpense from './AddExpense';
 
-
-
-
-
 function App(props) {
   
   let dispatch = useDispatch();
  
-  const budget = useSelector(state => state.budget)
-  const spent = useSelector(state =>state.spent);
-  const remaining = budget - spent;
-  
+  let budget = useSelector(state => state.budget)
+  let spent = useSelector(state =>state.spent);
+  let remaining = budget - spent;
+  let ovspt = document.getElementById("overspent");
+  let rmn = document.getElementById("remaining");
+  budget = Number(budget);
+  budget = budget.toFixed(2);
+  spent=spent.toFixed(2);
+  remaining=remaining.toFixed(2);
+
+  let test = rmn.getAttribute('hidden');
+  console.log('test: ', test)
   useEffect(() =>{
     console.log("in useEffect, budget: " + budget);
-  })
+    console.log("remaining = ", remaining)
+  
 
+    if (remaining <= 0){
+      console.log('----overspent----')
+      ovspt.removeAttribute("hidden")
+      rmn.setAttribute("hidden", "hidden");
+    } 
+    else if (test == "hidden"){
+      rmn.removeAttribute("hidden")
+      ovspt.setAttribute("hidden", "hidden");
+    }
+
+  })
+    
   function updateBudget (){
     
     let save_button = document.getElementById("Save")
@@ -35,21 +52,24 @@ function App(props) {
     save_label.removeAttribute("hidden");
     new_budget.removeAttribute("hidden");
     update_button.setAttribute("hidden", "hidden");
-
    
   }
   function toggle (){
     console.log("In update budget")
-    let save_button = document.getElementById("Save")
-    let update_button = document.getElementById("Update")
-    let save_label = document.getElementById("SaveLabel")
-    let new_budget_box = document.getElementById("NewBudget")
-    let new_budget =document.getElementById("NewBudget").value
+    let save_button = document.getElementById("Save");
+    let update_button = document.getElementById("Update");
+    let save_label = document.getElementById("SaveLabel");
+    let new_budget_box = document.getElementById("NewBudget");
+    let new_budget =document.getElementById("NewBudget").value;
     update_button.removeAttribute("hidden");
     save_button.setAttribute("hidden", "hidden");
     save_label.setAttribute("hidden", "hidden");
     new_budget_box.setAttribute("hidden", "hidden");
-    console.log("New Budget : $", new_budget)
+    console.log("New Budget : $", new_budget);
+    new_budget = Number(new_budget);
+    new_budget = new_budget.toFixed(2);
+    console.log("new budget: ", new_budget);
+    
     dispatch({
       type:"SET_BUDGET",
       payload: new_budget,
@@ -70,7 +90,9 @@ function App(props) {
         <button className = "saveButton" hidden={true} id="Save" onClick={toggle}>Save</button>
         </h3>
         
-        <h3 className= "remaining">Remaining: ${remaining}</h3>
+        <h3 className= "remaining" id="remaining" hidden={false}>Remaining: ${remaining}</h3>
+        <h3 className= "overspent" hidden ={true} id ="overspent">Remaining: ${remaining} <br></br>You have overspent!!</h3>
+        
         <h3 className= "spent">Spent: ${spent} </h3>
     </div>
     

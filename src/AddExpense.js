@@ -15,13 +15,22 @@ function AddExpense(props) {
         let amt = document.getElementById('ExpCost').value
         let id = count + 1;
         //To ensure no trailing decimals
+        if (name == ''){
+            name = 'undeclared'
+            console.log('name not declared, set to undeclared')
+        }
         amt=Number(amt);
-        amt=amt.toFixed(2);
+        if (amt == ''){
+            amt = 0;
+        }
         
+         amt=amt.toFixed(2);
+        
+
         let cost = {id, name, amt}
-        // console.log('Cost_name ', name)
-        // console.log('Cost_amt ', amt)
-        // console.log(cost)
+        console.log('Cost_name ', name)
+        console.log('Cost_amt ', amt)
+        console.log(cost)
         dispatch({
             type:"ADD_EXPENSE",
             payload: cost,

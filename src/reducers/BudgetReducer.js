@@ -1,9 +1,8 @@
 const initalState = {
     budget: 5000,
-    expense:[{id: 1, name:'Housing', amt:'1050'},{id: 2, name:'Food', amt:'400'}],
+    expense:[{id: 1, name:'Housing', amt:'1050.00'},{id: 2, name:'Food', amt:'400.00'}],
     spent: 1450,
-    count: 2 //default with 2 items in expense
-   
+    count: 2, //default with 2 items in expense
 }
 
 const BudgetReducer = (state = initalState, action)=>{
@@ -41,7 +40,7 @@ const BudgetReducer = (state = initalState, action)=>{
                 })}
             newState.expense = arrayRemove(newState.expense, action.payload);    
             // console.log("Expense List: " , newState.expense)
-            
+
             return newState;
             case 'REMOVE_EXPENSE_AMT':
                 // console.log("In REMOVE_EXPENSE_AMT", action.payload)
