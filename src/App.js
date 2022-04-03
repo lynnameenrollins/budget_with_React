@@ -22,22 +22,20 @@ function App(props) {
   spent=spent.toFixed(2);
   remaining=remaining.toFixed(2);
 
-  let test = rmn.getAttribute('hidden');
-  console.log('test: ', test)
   useEffect(() =>{
     console.log("in useEffect, budget: " + budget);
     console.log("remaining = ", remaining)
   
 
-    if (remaining <= 0){
-      console.log('----overspent----')
-      ovspt.removeAttribute("hidden")
-      rmn.setAttribute("hidden", "hidden");
-    } 
-    else if (test == "hidden"){
-      rmn.removeAttribute("hidden")
-      ovspt.setAttribute("hidden", "hidden");
-    }
+    // if (remaining <= 0){
+    //   console.log('----overspent----')
+    //   ovspt.removeAttribute("hidden")
+    //   rmn.setAttribute("hidden", "hidden");
+    // } 
+    // else{
+    //   rmn.removeAttribute("hidden")
+    //   ovspt.setAttribute("hidden", "hidden");
+    // }
 
   })
     
