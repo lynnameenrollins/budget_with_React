@@ -8,8 +8,7 @@ function AddExpense(props) {
     const count = useSelector (state => state.count)
 
 
-    // console.log("count: ", count)
-    // let id = expense.length; //Defaulted with 2 items in the list
+    
     const Add = (e) =>{
         let name = document.getElementById('ExpName').value
         let amt = document.getElementById('ExpCost').value
@@ -28,9 +27,7 @@ function AddExpense(props) {
         
 
         let cost = {id, name, amt}
-        // console.log('Cost_name ', name)
-        // console.log('Cost_amt ', amt)
-        // console.log(cost)
+      
         dispatch({
             type:"ADD_EXPENSE",
             payload: cost,
