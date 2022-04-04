@@ -1,19 +1,34 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import ListGroup from 'react-bootstrap/ListGroup'
 
 
-
+function Search(expense){
+    let src = document.getElementById("Search").value
+    
+    console.log("Search criteria", src)
+  
+      if (src !==""){
+      var searched = expense.filter(function(found) {
+        return found.name === src;
+      })
+      console.log("Searched (result)", searched) 
+    }
+    return searched;
+}
 
 function Expenses(props) {
     const expense = useSelector(state => state.expense)
-   
+    
+    // let searched = Search(expense);
+    // console.log("Did this make a difference, ", searched)
+
+    
     // for (let i=0; i< expense.length; i++) {
     // console.log('Expense Item [',i,']: ' , expense[i])
     // }
 
     let dispatch = useDispatch();
-
+    // let result = Search();
     const RemoveExpense = (id, name, amt) =>{
         
         let cost = {id, name, amt}
@@ -29,10 +44,16 @@ function Expenses(props) {
             payload: amt,
         })
     }
+    
     return (
+    
         <div className ="ExpenseList">
             <h1>List of Expenses</h1>
 
+            <input type="text" id="Search" ></input>            
+            <button className="search" onClick={() =>Search(expense)}> Search </button>
+            
+            
             <div className="expense-container"> 
             <div>
               <table className ='expense-table'>
