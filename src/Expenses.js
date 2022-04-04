@@ -1,28 +1,25 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import {useState} from 'react';
 
-
-function Search(expense){
-    let src = document.getElementById("Search").value
+// function Search(expense){
+//     let src = document.getElementById("Search").value
     
-    console.log("Search criteria", src)
+//     console.log("Search criteria", src)
   
-      if (src !==""){
-      var searched = expense.filter(function(found) {
-        return found.name === src;
-      })
-      console.log("Searched (result)", searched) 
-    }
-    return searched;
-}
+//       if (src !==""){
+//       var searched = expense.filter(function(found) {
+//         return found.name === src;
+//       })
+//       console.log("Searched (result)", searched) 
+//     }
+//     return searched;
+// }
 
 function Expenses(props) {
     const expense = useSelector(state => state.expense)
-    
-    // let searched = Search(expense);
-    // console.log("Did this make a difference, ", searched)
-
-    
+    const [searchTerm, setSearchTerm] = useState('')
+  
     // for (let i=0; i< expense.length; i++) {
     // console.log('Expense Item [',i,']: ' , expense[i])
     // }
@@ -50,9 +47,8 @@ function Expenses(props) {
         <div className ="ExpenseList">
             <h1>List of Expenses</h1>
 
-            <input type="text" id="Search" ></input>            
-            <button className="search" onClick={() =>Search(expense)}> Search </button>
-            
+            <input type="text" id="Search" placeholder='Search expense list' onChange={(event) => setSearchTerm(event.target.value)} ></input>            
+                
             
             <div className="expense-container"> 
             <div>
@@ -67,17 +63,43 @@ function Expenses(props) {
                 </thead>
                 <tbody>
                   <td className = 'td'>
-                  {expense.map(item => {
+                  {expense.filter((val)=>{
+                    if(searchTerm ==""){
+                      console.log('null string in search term = ', val)
+                      return val
+                    } else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
+                      console.log('value = ', val)
+                      return val
+                    }
+                    
+                  }).map((val,key) =>{
+                    return(
+                      <div className='span_exp' key = {key}><p> {val.name}</p><hr id="line"></hr></div>
+                  );})}
+                  {/* {expense.map(item => {
                     return (
                       <>
                         <ol className="span_exp" key = {item.name} id={item.name}>
                         {item.name} </ol><hr id="line"></hr>
                       </>
                      );
-                     })}
+                     })} */}
                   </td>
                   <td className = 'td'>
-                  {expense.map(item => {
+                    {expense.filter((val)=>{
+                        if(searchTerm ==""){
+                          console.log('null string in search term = ', val)
+                          return val
+                        } else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
+                          console.log('value = ', val)
+                          return val
+                        }
+                        
+                      }).map((val,key) =>{
+                        return(
+                          <div className='span_exp' key = {key}><p> {val.amt}</p><hr id="line"></hr></div>
+                      );})}
+                  {/* {expense.map(item => {
                     return (
                       <>
                         <ol className="span_exp" key = {item.name} id={item.name}>
@@ -85,10 +107,24 @@ function Expenses(props) {
                         </ol><hr id="line"></hr>
                       </>
                      );
-                     })}
+                     })} */}
                   </td>
                   <td className = 'td'>
-                  {expense.map(item => {
+                                {expense.filter((val)=>{
+                            if(searchTerm ==""){
+                              console.log('null string in search term = ', val)
+                              return val
+                            } else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
+                              console.log('value = ', val)
+                              return val
+                            }
+                            
+                          }).map((val,key) =>{
+                            return(
+                              <div className='span_exp' key = {key}><button id="rm_exp" className="rm_exp" onClick={()=>RemoveExpense(val.id, val.name, val.amt)}>X</button>
+                              <hr id="line"></hr></div>
+                          );})}
+                  {/* {expense.map(item => {
                     return (
                       <>
                         <ol className="span_exp" key = {item.name} id={item.name}>
@@ -96,7 +132,7 @@ function Expenses(props) {
                         </ol><hr id="line"></hr>
                       </>
                      );
-                     })}
+                     })} */}
                   </td>
                     
                 </tbody>
