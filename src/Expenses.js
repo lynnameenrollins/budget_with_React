@@ -46,7 +46,7 @@ function Expenses(props) {
     
         <div className ="ExpenseList">
             <h1>List of Expenses</h1>
-
+            <label id="search_label">Filter List: </label>
             <input type="text" id="Search" placeholder='Search expense list' onChange={(event) => setSearchTerm(event.target.value)} ></input>            
                 
             
@@ -74,16 +74,9 @@ function Expenses(props) {
                     
                   }).map((val,key) =>{
                     return(
-                      <div className='span_exp' key = {key}><p> {val.name}</p><hr id="line"></hr></div>
+                      <div className='span_exp' key = {key}><ol> {val.name}</ol><hr id="line"></hr></div>
                   );})}
-                  {/* {expense.map(item => {
-                    return (
-                      <>
-                        <ol className="span_exp" key = {item.name} id={item.name}>
-                        {item.name} </ol><hr id="line"></hr>
-                      </>
-                     );
-                     })} */}
+                 
                   </td>
                   <td className = 'td'>
                     {expense.filter((val)=>{
@@ -97,17 +90,9 @@ function Expenses(props) {
                         
                       }).map((val,key) =>{
                         return(
-                          <div className='span_exp' key = {key}><p> {val.amt}</p><hr id="line"></hr></div>
+                          <div className='span_exp' key = {key}><ol> {val.amt}</ol><hr id="line"></hr></div>
                       );})}
-                  {/* {expense.map(item => {
-                    return (
-                      <>
-                        <ol className="span_exp" key = {item.name} id={item.name}>
-                         {item.amt}
-                        </ol><hr id="line"></hr>
-                      </>
-                     );
-                     })} */}
+                 
                   </td>
                   <td className = 'td'>
                                 {expense.filter((val)=>{
@@ -121,18 +106,10 @@ function Expenses(props) {
                             
                           }).map((val,key) =>{
                             return(
-                              <div className='span_exp' key = {key}><button id="rm_exp" className="rm_exp" onClick={()=>RemoveExpense(val.id, val.name, val.amt)}>X</button>
+                              <div className='span_exp' key = {key}><ol><button id="rm_exp" className="rm_exp" onClick={()=>RemoveExpense(val.id, val.name, val.amt)}>X</button></ol>
                               <hr id="line"></hr></div>
                           );})}
-                  {/* {expense.map(item => {
-                    return (
-                      <>
-                        <ol className="span_exp" key = {item.name} id={item.name}>
-                         <button id="rm_exp" className="rm_exp" onClick={()=>RemoveExpense(item.id, item.name, item.amt)}>X</button>
-                        </ol><hr id="line"></hr>
-                      </>
-                     );
-                     })} */}
+                  
                   </td>
                     
                 </tbody>
