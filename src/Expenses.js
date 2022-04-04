@@ -7,21 +7,19 @@ import ListGroup from 'react-bootstrap/ListGroup'
 
 function Expenses(props) {
     const expense = useSelector(state => state.expense)
-    let array = [];
-    for (let i=0; i< expense.length; i++) {
-    console.log('Expense Item [',i,']: ' , expense[i])
-    }
+   
+    // for (let i=0; i< expense.length; i++) {
+    // console.log('Expense Item [',i,']: ' , expense[i])
+    // }
 
     let dispatch = useDispatch();
 
     const RemoveExpense = (id, name, amt) =>{
         
-    
-        console.log('----TEST-----', id, name, amt)
         let cost = {id, name, amt}
-        console.log('Cost_name ', name)
-        console.log('Cost_amt ', amt)
-        console.log('payload: ', cost)
+        // console.log('Cost_name ', name)
+        // console.log('Cost_amt ', amt)
+        // console.log('payload: ', cost)
         dispatch({
             type:"REMOVE_EXPENSE",
             payload: cost,

@@ -1,8 +1,8 @@
 const initalState = {
     budget: 5000,
-    expense:[{id: 1, name:'Housing', amt:'1050.00'},{id: 2, name:'Food', amt:'400.00'}],
-    spent: 1450,
-    count: 2, //default with 2 items in expense
+    expense:[],
+    spent: 0,
+    count: 0, //default with 2 items in expense
 }
 
 const BudgetReducer = (state = initalState, action)=>{

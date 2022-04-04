@@ -28,12 +28,12 @@ function App(props) {
     console.log("in useEffect, budget: " + budget);
     console.log("remaining = ", remaining)
   
-    if (remaining <= 0){
+    if (remaining < 0){
       console.log('----overspent----')
       ovspt.removeAttribute("hidden")
       rmn.setAttribute("hidden", "hidden");
     } 
-    else if (count >=3){
+    else if (count >=1){
       rmn.removeAttribute("hidden")
       ovspt.setAttribute("hidden", "hidden");
     }
@@ -84,7 +84,7 @@ function App(props) {
         
         <h3 className= "budget">Budget: ${budget}  <button className = "updateBudget" type="button" id="Update" onClick={updateBudget}>Update
         </button><br></br>
-        <label id ="SaveLabel" hidden={true}>Enter Updated Budget ($): </label><input type="text" id="NewBudget" hidden={true} ></input>
+        <label id ="SaveLabel" hidden={true}>Enter Updated Budget ($): </label><input type="number" id="NewBudget" hidden={true} ></input>
         <button className = "saveButton" hidden={true} id="Save" onClick={toggle}>Save</button>
         </h3>
         
